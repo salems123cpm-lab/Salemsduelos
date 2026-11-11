@@ -851,7 +851,7 @@ elseif e.gp then return {gp=e.gp.Name}
 else return {kb=nil,gp=nil} end
 end
 local cfg={normalSpeed=NS,carrySpeed=CS,dropBrainrotKey=ks(KB.DropBrainrot),autoLeftKey=ks(KB.AutoLeft),autoRightKey=ks(KB.AutoRight),autoBatKey=ks(KB.AutoBat),aimbotV2Key=ks(KB.AimbotV2),laggerToggleKey=ks(KB.LaggerToggle),tpFloorKey=ks(KB.TPFloor),instaResetKey=ks(KB.InstaReset),guiHideKey=ks(KB.GuiHide),speedToggleKey=ks(KB.SpeedToggle),antiDesyncKey=ks(KB.AntiDesync),grabRadius=Steal.StealRadius,stealDuration=Steal.StealDuration,antiRagdoll=antiRagdollEnabled,autoStealEnabled=Steal.AutoStealEnabled,infiniteJump=infJumpEnabled,infJumpMode=infJumpMode,medusaCounter=medusaCounterEnabled,batCounter=batCounterEnabled,carrySpeedActive=carrySpeedActive,laggerModeEnabled=laggerModeEnabled,laggerCarryActive=laggerCarryActive,laggerSpeed=LAGGER_SPEED,laggerCarrySpeed=LAGGER_CARRY_SPEED,autoBat=autoBatEnabled,aimbotV2=aimbotV2Enabled,autoSwing=autoSwingEnabled,unwalkEnabled=unwalkEnabled,antiLag=antiLagEnabled,stretchRez=stretchRezEnabled,autoTPEnabled=autoTPEnabled,autoTPHeight=autoTPHeight,guiTransparencyEnabled=guiTransparencyEnabled,mobileButtonsEnabled=mobileButtonsEnabled,mobileButtonsLocked=mobileButtonsLocked,mobileButtonsSize=mobileButtonsSize,circleButtonsEnabled=circleButtonsEnabled,antiKick=antiKickEnabled,fovValue=fovValue,perButtonDrag=perButtonDragEnabled,skyTheme=currentSkyTheme,medusaReset=nil,autoMoveSwing=autoMoveSwingEnabled,autoMoveSwingInterval=autoMoveSwingInterval,ragdollGui=ragdollGuiEnabled}
-if writefile then pcall(function() writefile("santavs.json",HS:JSONEncode(cfg)) end) end
+if writefile then pcall(function() writefile("salemsvs.json",HS:JSONEncode(cfg)) end) end
 end
 task.spawn(function() while task.wait(5) do saveConfig() end end)
 local function resetAllSettings()
@@ -985,7 +985,7 @@ local SB_W,SB_H=260,32
 local stealGui=Instance.new("ScreenGui");stealGui.Name="MoveeStealBar";stealGui.ResetOnSpawn=false;stealGui.IgnoreGuiInset=true;stealGui.DisplayOrder=8
 pcall(function() if syn and syn.protect_gui then syn.protect_gui(stealGui) end end)
 if not pcall(function() stealGui.Parent=game:GetService("CoreGui") end) then stealGui.Parent=LP:WaitForChild("PlayerGui") end
--- santa duels styled steal bar
+-- salems duels styled steal bar
 local SB_BG    = Color3.fromRGB(8,5,16)
 local SB_PINK  = Color3.fromRGB(160,80,255)
 local SB_PINK2 = Color3.fromRGB(200,130,255)
@@ -1402,7 +1402,7 @@ bgImage.Image="rbxassetid://138154962411611";bgImage.ScaleType=Enum.ScaleType.Cr
 Instance.new("UICorner",bgImage).CornerRadius=UDim.new(0,18)\
 local bgWatermark=Instance.new("TextLabel",bgImage)\
 bgWatermark.Size=UDim2.new(1,0,1,0);bgWatermark.BackgroundTransparency=1\
-bgWatermark.Text="santa duels";bgWatermark.TextColor3=Color3.fromRGB(255,255,255)\
+bgWatermark.Text="salems duels";bgWatermark.TextColor3=Color3.fromRGB(255,255,255)\
 bgWatermark.Font=Enum.Font.GothamBlack;bgWatermark.TextSize=38\
 bgWatermark.TextTransparency=0.4;bgWatermark.ZIndex=7\
 bgWatermark.TextXAlignment=Enum.TextXAlignment.Center;bgWatermark.TextYAlignment=Enum.TextYAlignment.Center\
@@ -1469,13 +1469,13 @@ dragHandle(header)
 -- Title centered in header\
 local titleLbl=Instance.new("TextLabel",header)\
 titleLbl.Size=UDim2.new(1,-80,1,0);titleLbl.Position=UDim2.new(0,12,0,0)\
-titleLbl.BackgroundTransparency=1;titleLbl.Text="santa duels"\
+titleLbl.BackgroundTransparency=1;titleLbl.Text="salems duels"\
 titleLbl.TextColor3=WHITE;titleLbl.Font=Enum.Font.GothamBlack\
 titleLbl.TextSize=14;titleLbl.TextXAlignment=Enum.TextXAlignment.Left;titleLbl.ZIndex=8
 
 local discSmall=Instance.new("TextLabel",header)\
 discSmall.Size=UDim2.new(0,120,0,12);discSmall.Position=UDim2.new(0,12,1,-14)\
-discSmall.BackgroundTransparency=1;discSmall.Text="discord.gg/santavs"\
+discSmall.BackgroundTransparency=1;discSmall.Text="discord.gg/salemsduels"\
 discSmall.TextColor3=PINK;discSmall.Font=Enum.Font.GothamBold\
 discSmall.TextSize=8;discSmall.TextXAlignment=Enum.TextXAlignment.Left;discSmall.ZIndex=8
 
@@ -1510,7 +1510,7 @@ Instance.new("UICorner",closeBtn).CornerRadius=UDim.new(0,10)
 local miniBtn=Instance.new("TextButton",gui)\
 miniBtn.Size=UDim2.new(0,110,0,28);miniBtn.Position=UDim2.new(0.5,-55,0,60)\
 miniBtn.BackgroundColor3=BG2;miniBtn.BorderSizePixel=0\
-miniBtn.Text="santa duels";miniBtn.TextColor3=PINK\
+miniBtn.Text="salems duels";miniBtn.TextColor3=PINK\
 miniBtn.Font=Enum.Font.GothamBlack;miniBtn.TextSize=11;miniBtn.ZIndex=20;miniBtn.Visible=false\
 Instance.new("UICorner",miniBtn).CornerRadius=UDim.new(0,14)\
 -- Mini button has its own independent drag so it stays at its original spot\
@@ -2077,7 +2077,7 @@ do\
         -- If already open, just show/destroy toggle\
         if _duelPanelGui and _duelPanelGui.Parent then\
             _duelPanelGui:Destroy();_duelPanelGui=nil\
-            _G._santaLaggerPanelFlip=nil;_G._santaLaggerPanelGui=nil\
+            _G._salemsLaggerPanelFlip=nil;_G._salemsLaggerPanelGui=nil\
             openBtn.Text="Open"\
             TweenService:Create(openBtn,TweenInfo.new(0.1),{BackgroundColor3=PINK3}):Play()\
             return\
@@ -2127,12 +2127,12 @@ do\
         hdrPatch2.Position=UDim2.new(0,0,1,-14);hdrPatch2.BackgroundColor3=Color3.fromRGB(12,8,20);hdrPatch2.BorderSizePixel=0;hdrPatch2.ZIndex=5\
         local hdrDiv2=Instance.new("Frame",hdr2);hdrDiv2.Size=UDim2.new(1,0,0,1)\
         hdrDiv2.Position=UDim2.new(0,0,1,-1);hdrDiv2.BackgroundColor3=Color3.fromRGB(50,30,90);hdrDiv2.BorderSizePixel=0;hdrDiv2.ZIndex=7\
-        -- Title: "santa" white + ".vs" pink\
+        -- Title: "salems" white + ".vs" pink\
         local santaLbl=Instance.new("TextLabel",hdr2)\
-        santaLbl.Size=UDim2.new(0,70,1,0);santaLbl.Position=UDim2.new(0,14,0,0)\
-        santaLbl.BackgroundTransparency=1;santaLbl.Text="santa"\
-        santaLbl.TextColor3=Color3.fromRGB(255,255,255);santaLbl.Font=Enum.Font.GothamBlack\
-        santaLbl.TextSize=15;santaLbl.TextXAlignment=Enum.TextXAlignment.Left;santaLbl.ZIndex=8\
+        salemsLbl.Size=UDim2.new(0,70,1,0);salemsLbl.Position=UDim2.new(0,14,0,0)\
+        salemsLbl.BackgroundTransparency=1;salemsLbl.Text="salems"\
+        salemsbl.TextColor3=Color3.fromRGB(255,255,255);santaLbl.Font=Enum.Font.GothamBlack\
+        salemsLbl.TextSize=15;salemsLbl.TextXAlignment=Enum.TextXAlignment.Left;salemsLbl.ZIndex=8\
         local vsLbl2=Instance.new("TextLabel",hdr2)\
         vsLbl2.Size=UDim2.new(0,30,1,0);vsLbl2.Position=UDim2.new(0,84,0,2)\
         vsLbl2.BackgroundTransparency=1;vsLbl2.Text=".vs"\
@@ -2209,8 +2209,8 @@ do\
         end\
         btnThing2.MouseButton1Click:Connect(function() flip2(not active2) end)\
         -- Expose toggle for global KB handler\
-        _G._santaLaggerPanelFlip = function() flip2(not active2) end\
-        _G._santaLaggerPanelGui = screenThing2\
+        _G._salemsLaggerPanelFlip = function() flip2(not active2) end\
+        _G._salemsLaggerPanelGui = screenThing2\
         -- LeftControl still hides/shows panel\
         UIS2.InputBegan:Connect(function(input,processed)\
             if processed then return end\
@@ -2320,7 +2320,7 @@ end
 local gui = Instance.new("ScreenGui")
 gui.Name="EnvyAutoBatDesyncGUI"; gui.ResetOnSpawn=false; gui.DisplayOrder=10
 gui.IgnoreGuiInset=true; gui.Parent=LP:WaitForChild("PlayerGui")
-_G._santaAntiDesyncGui = gui
+_G._salemsAntiDesyncGui = gui
 
 local main = Instance.new("Frame",gui)
 main.Name="Main"; main.Size=UDim2.new(0,240,0,80); main.Position=UDim2.new(0.5,-120,0.5,-40)
@@ -2364,7 +2364,7 @@ headerDiv.BackgroundColor3=BORDER; headerDiv.BorderSizePixel=0; headerDiv.ZIndex
 
 local titleLbl = Instance.new("TextLabel",header)
 titleLbl.Size=UDim2.new(0,130,1,0); titleLbl.Position=UDim2.new(0,14,0,0)
-titleLbl.BackgroundTransparency=1; titleLbl.Text="santa AUTO BAT DESYNC"
+titleLbl.BackgroundTransparency=1; titleLbl.Text="salems AUTO BAT DESYNC"
 titleLbl.TextColor3=WHITE; titleLbl.Font=Enum.Font.GothamBlack; titleLbl.TextSize=10
 titleLbl.TextXAlignment=Enum.TextXAlignment.Left; titleLbl.ZIndex=6
 
